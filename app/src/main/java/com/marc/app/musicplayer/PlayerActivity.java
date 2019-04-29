@@ -82,6 +82,7 @@ public class PlayerActivity extends AppCompatActivity {
             }
         });
 
+        // Listener para la imagen
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

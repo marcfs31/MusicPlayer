@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance(); // Apunta el objeto a mi proyecto de Firebase
 
         // Para cada hijo del nodo raiz hace un listener
-        firebaseDatabase.getReference().addChildEventListener(new ChildEventListener() {
+        firebaseDatabase.getReference().child("songs").addChildEventListener(new ChildEventListener() { // Añadir el child para cada elemento hijo del padre (musicplayer-97ddf) algo así
+                                                                                                        // En este caso es /songs/ y de ahi ya se cogen todos los hijos
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { // Leer de Firebase
                 Song song;

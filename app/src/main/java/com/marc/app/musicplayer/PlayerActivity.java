@@ -65,19 +65,18 @@ public class PlayerActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Reproducir la musica desde la URL
-                mediaPlayer = new MediaPlayer();
-
                 try {
+                    mediaPlayer = new MediaPlayer();
                     mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                     mediaPlayer.setDataSource(songURL);  // Le pasamos la URL de la cancion
                     mediaPlayer.prepare();
                     mediaPlayer.start();
+
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                // Redimensionar la imagen
-                imageView.animate().scaleXBy((float) 1.0).scaleYBy((float) 1.0); // Hacer la foto grande
+                //imageView.animate().scaleXBy((float) 1.0).scaleYBy((float) 1.0); // Hacer la foto grande
+                imageView.animate().scaleX((float) 2.0).scaleY((float) 2.0); // Hacer la foto grande
                 imageButton.animate().alpha(0); // Hacer desaparecer el boton
             }
         });
@@ -88,6 +87,9 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (mediaPlayer.isPlaying()) { // Si la musica esta sonando se pausa
                     mediaPlayer.pause();
+                    imageView.animate().scaleY((float) 1.0).scaleX((float) 1.0); // Volver a poner la foto como estaba
+                    imageButton.animate().alpha(1); // Hacer aparecer el botón
+                    //imageView.animate().scaleXBy((float) -1.0).scaleYBy((float) -1.0); // Volver a poner la imagen como estaba
                 } else { // Sino se inicia
                     mediaPlayer.start();
                 }

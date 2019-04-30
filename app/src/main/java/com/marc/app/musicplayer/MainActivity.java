@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { // Leer de Firebase
                 Song song;
 
-                song = dataSnapshot.getValue(Song.class); // Pillo el elemento del Firebase
+                song = dataSnapshot.getValue(Song.class); // Pillo el elemento del Firebase como tipo Song, tiene que tener un constructor vacio para que funcione
 
                 songs.add(song); // Añadir el elemento sacado de firebase a la lista de canciones
                 musicAdapter.notifyDataSetChanged(); // Avisar al adapter que se ha añadido un elemento
